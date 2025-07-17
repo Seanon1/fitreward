@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitbonus - Hire a Trainer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff;
+        }
+
+        /* Styles for the new navbar */
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked+label+div#menu-links {
+            display: flex;
+        }
+
+        .nav-link-active {
+            border-bottom-width: 2px;
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        /* Style for the active in-page tab */
+        .nav-active {
+            background-color: #2563eb; /* Darker blue */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        /* Simple transition for content sections */
+        .section-fade-enter {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .section-fade-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-gray-800">
+    <!-- New Sticky Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 w-full z-20">
+        <div class="container mx-auto px-6 flex justify-between items-center flex-wrap">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse py-2">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-blue-600">Fitbonus</span>
+            </a>
+            <input type="checkbox" id="menu-toggle" class="peer">
+            <label for="menu-toggle" class="md:hidden cursor-pointer p-2 rounded-md hover:bg-gray-100">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </label>
+            <div id="menu-links" class="hidden w-full bg-white shadow-md py-2 flex-col
+                         md:static md:flex md:w-auto md:shadow-none md:bg-transparent md:py-0 
+                         md:flex-row md:items-center md:space-x-4">
+                <a href="#" class="block w-full text-center md:w-auto text-gray-600 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link nav-link-active">Home</a>
+                <a href="#" class="block w-full text-center md:w-auto text-gray-600 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">About</a>
+                <a href="#" class="block w-full text-center md:w-auto text-gray-600 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Referrals</a>
+                <a href="#" class="block w-full text-center md:w-auto text-gray-600 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Leaderboard</a>
+                <a href="#" class="block w-full text-center md:w-auto text-gray-600 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">BMI Calculator</a>
+                <a href="#" class="block w-full text-center md:w-auto text-gray-600 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Login</a>
+                <a href="#" class="block w-full text-center md:w-auto text-gray-600 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Journal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Page Content -->
+    <div class="w-full max-w-6xl mx-auto p-4 pt-8">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <img src="https://placehold.co/150x150/3b82f6/FFFFFF?text=Fitbonus" alt="Fitbonus Logo" class="mx-auto mb-4 rounded-full shadow-lg border-4 border-white">
+            <h1 class="text-5xl font-extrabold text-blue-800">Make Fitness Fun</h1>
+            <p class="text-lg text-gray-600 mt-2">Your journey to a healthier, happier you starts here!</p>
+        </header>
+
+        <!-- In-Page Navigation Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 bg-blue-100 p-2 rounded-xl shadow-md mb-12">
+            <button id="showTrainersBtn" class="nav-button px-6 py-3 rounded-lg font-semibold text-gray-700 hover:bg-blue-200 transition-all duration-300 nav-active">
+                <i class="fas fa-users mr-2"></i>Hire a Trainer
+            </button>
+             <button id="showTestimonialsBtn" class="nav-button px-6 py-3 rounded-lg font-semibold text-gray-700 hover:bg-blue-200 transition-all duration-300">
+                <i class="fas fa-star mr-2"></i>Testimonials
+            </button>
+            <button id="showNewsletterBtn" class="nav-button px-6 py-3 rounded-lg font-semibold text-gray-700 hover:bg-blue-200 transition-all duration-300">
+                <i class="fas fa-envelope-open-text mr-2"></i>Newsletter
+            </button>
+        </div>
+
+        <!-- Main Content Area -->
+        <main>
+            <!-- Hire a Trainer Section -->
+            <section id="trainersSection" class="section-fade-enter-active">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-blue-900">Find Your Perfect Coach</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Our certified trainers are here to guide, motivate, and make your fitness journey exciting and effective.</p>
+                </div>
+                <!-- Trainers Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Trainer Card 1 -->
+                    <div class="bg-white rounded-2xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                        <img src="https://placehold.co/120x120/60a5fa/FFFFFF?text=JS" alt="Trainer Jane" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-200">
+                        <h3 class="text-2xl font-bold text-gray-800">Jane Smith</h3>
+                        <p class="text-blue-600 font-semibold mb-3">HIIT & Cardio</p>
+                        <div class="flex justify-center space-x-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Energy</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Motivation</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 flex-grow">Jane brings incredible energy to every session, making high-intensity workouts feel like a party.</p>
+                        <button class="book-btn w-full py-3 px-6 rounded-lg shadow-lg text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition duration-200">Book a Session</button>
+                    </div>
+                    <!-- Trainer Card 2 -->
+                    <div class="bg-white rounded-2xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                        <img src="https://placehold.co/120x120/93c5fd/FFFFFF?text=MA" alt="Trainer Mike" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-200">
+                        <h3 class="text-2xl font-bold text-gray-800">Mike Adams</h3>
+                        <p class="text-blue-600 font-semibold mb-3">Strength & Bodybuilding</p>
+                         <div class="flex justify-center space-x-2 mb-4">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Strength</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Discipline</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 flex-grow">With a focus on form and progressive overload, Mike will help you build the physique of your dreams.</p>
+                        <button class="book-btn w-full py-3 px-6 rounded-lg shadow-lg text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition duration-200">Book a Session</button>
+                    </div>
+                    <!-- Trainer Card 3 -->
+                    <div class="bg-white rounded-2xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                        <img src="https://placehold.co/120x120/3b82f6/FFFFFF?text=CL" alt="Trainer Chloe" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-200">
+                        <h3 class="text-2xl font-bold text-gray-800">Chloe Lee</h3>
+                        <p class="text-blue-600 font-semibold mb-3">Yoga & Flexibility</p>
+                         <div class="flex justify-center space-x-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Calm</span>
+                            <span class="bg-pink-100 text-pink-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Flexibility</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 flex-grow">Find your flow and balance with Chloe. Her sessions are perfect for de-stressing and improving mobility.</p>
+                        <button class="book-btn w-full py-3 px-6 rounded-lg shadow-lg text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition duration-200">Book a Session</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Testimonials Section -->
+            <section id="testimonialsSection" class="hidden">
+                 <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-blue-900">What Our Members Say</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">We don't just make fitness fun, we get results. Hear it from the community!</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Testimonial Card 1 -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row items-center gap-6">
+                        <img src="https://placehold.co/100x100/facc15/FFFFFF?text=A" alt="Alex" class="w-24 h-24 rounded-full border-4 border-yellow-200">
+                        <div class="text-center sm:text-left">
+                            <div class="text-yellow-400 mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 italic mb-4">"Fitbonus completely changed my attitude towards exercise. I actually look forward to the challenges and earning rewards. It's brilliant!"</p>
+                            <h4 class="font-bold text-gray-800">Alex Johnson</h4>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row items-center gap-6">
+                        <img src="https://placehold.co/100x100/4ade80/FFFFFF?text=S" alt="Samantha" class="w-24 h-24 rounded-full border-4 border-green-200">
+                        <div class="text-center sm:text-left">
+                            <div class="text-yellow-400 mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 italic mb-4">"I've tried so many apps, but the team competitions on Fitbonus are a game-changer. My friends and I keep each other motivated every day."</p>
+                            <h4 class="font-bold text-gray-800">Samantha Bee</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Section -->
+            <section id="newsletterSection" class="hidden">
+                <div class="bg-white shadow-2xl rounded-xl p-8 max-w-2xl w-full text-center flex flex-col items-center mx-auto">
+                    <h2 class="text-4xl font-extrabold text-blue-800 mb-4">Join the Fitbonus Family!</h2>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Get exclusive fitness tips, healthy recipes, workout plans, and special offers delivered straight to your inbox.
+                    </p>
+                    <form id="newsletterForm" class="space-y-6 max-w-md w-full mx-auto">
+                        <div>
+                            <label for="name" class="sr-only">Your Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required
+                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base">
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Your Email</label>
+                            <input type="email" id="email" placeholder="Your Email Address" required
+                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base">
+                        </div>
+                        <button type="submit"
+                                class="w-full flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-lg text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200 ease-in-out transform hover:scale-105">
+                            Subscribe Now!
+                        </button>
+                    </form>
+                    <p class="text-sm text-gray-500 mt-8">We respect your privacy and will never share your email.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Message Box for feedback -->
+    <div id="messageBox" class="fixed bottom-5 right-5 hidden p-4 rounded-lg text-base shadow-lg max-w-sm z-50" role="alert"></div>
+
+    <script>
+        // --- DOM Element Selection ---
+        const trainersSection = document.getElementById('trainersSection');
+        const testimonialsSection = document.getElementById('testimonialsSection');
+        const newsletterSection = document.getElementById('newsletterSection');
+        
+        const showTrainersBtn = document.getElementById('showTrainersBtn');
+        const showTestimonialsBtn = document.getElementById('showTestimonialsBtn');
+        const showNewsletterBtn = document.getElementById('showNewsletterBtn');
+        
+        const navButtons = document.querySelectorAll('.nav-button');
+        const bookButtons = document.querySelectorAll('.book-btn');
+
+        const newsletterForm = document.getElementById('newsletterForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageBox = document.getElementById('messageBox');
+
+        // --- Functions ---
+
+        /**
+         * Displays a message in the message box with appropriate styling.
+         * @param {string} message - The message to display.
+         * @param {string} type - The type of message ('success', 'error', 'info').
+         */
+        function showMessage(message, type) {
+            messageBox.textContent = message;
+            messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800', 'bg-blue-100', 'text-blue-800');
+            
+            let typeClasses = 'bg-blue-100 text-blue-800'; // Default to info
+            if (type === 'success') {
+                typeClasses = 'bg-green-100 text-green-800';
+            } else if (type === 'error') {
+                typeClasses = 'bg-red-100 text-red-800';
+            }
+            messageBox.classList.add(...typeClasses.split(' '));
+            
+            // Fade in
+            messageBox.classList.remove('hidden');
+
+            // Hide after 5 seconds
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        /**
+         * Switches the view between the sections.
+         * @param {string} sectionToShow - The ID of the section to show ('trainers', 'testimonials', or 'newsletter').
+         */
+        function switchView(sectionToShow) {
+            // Hide all sections first
+            trainersSection.classList.add('hidden');
+            testimonialsSection.classList.add('hidden');
+            newsletterSection.classList.add('hidden');
+
+            // Remove active class from all nav buttons
+            navButtons.forEach(btn => btn.classList.remove('nav-active'));
+            
+            // Show the selected section and update nav
+            let sectionElement, buttonElement;
+            if (sectionToShow === 'trainers') {
+                sectionElement = trainersSection;
+                buttonElement = showTrainersBtn;
+            } else if (sectionToShow === 'testimonials') {
+                sectionElement = testimonialsSection;
+                buttonElement = showTestimonialsBtn;
+            } else if (sectionToShow === 'newsletter') {
+                sectionElement = newsletterSection;
+                buttonElement = showNewsletterBtn;
+            }
+
+            if (sectionElement && buttonElement) {
+                sectionElement.classList.remove('hidden');
+                sectionElement.classList.add('section-fade-enter', 'section-fade-enter-active');
+                buttonElement.classList.add('nav-active');
+            }
+        }
+
+        // --- Event Listeners ---
+
+        // Navigation button clicks
+        showTrainersBtn.addEventListener('click', () => switchView('trainers'));
+        showTestimonialsBtn.addEventListener('click', () => switchView('testimonials'));
+        showNewsletterBtn.addEventListener('click', () => switchView('newsletter'));
+
+        // "Book a Session" button clicks
+        bookButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showMessage('Great choice! Our booking feature is coming soon. Stay tuned!', 'info');
+            });
+        });
+
+        // Newsletter form submission
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            if (name === '' || email === '') {
+                showMessage('Please fill in all fields.', 'error');
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Simulate sending data
+            console.log(`Newsletter sign-up: Name - ${name}, Email - ${email}`);
+            showMessage('Thank you for subscribing to Fitbonus! Check your inbox soon.', 'success');
+
+            // Clear the form
+            newsletterForm.reset();
+        });
+
+        // --- Initial State ---
+        // Ensure the initial view is set correctly on page load.
+        switchView('trainers');
+    </script>
+</body>
+</html>

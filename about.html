@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About FitBonus Gym</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base body and font styles (from both snippets, merged) */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            /* bg-gray-100 and text-gray-800 from Tailwind handle background/text color */
+        }
+
+        /* Navigation specific styles */
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked+label+div#menu-links {
+            display: flex;
+        }
+
+        .nav-link-active {
+            border-bottom-width: 2px;
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.9));
+        }
+
+        /* About Us page specific styles */
+        .about-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .about-header p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows items to wrap on smaller screens */
+            gap: 30px;
+            align-items: flex-start;
+            /* Align items to the top */
+        }
+
+        .about-text,
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            /* Minimum width before wrapping */
+        }
+
+        .about-text h2 {
+            font-size: 2em;
+            color: #34495e;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 3px solid #e74c3c;
+            /* Accent color */
+            padding-bottom: 5px;
+            display: inline-block;
+            /* Makes border-bottom only as wide as text */
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .about-text ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .about-text ul li {
+            background: #ecf0f1;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        .about-text ul li::before {
+            content: '💪';
+            /* Fitness emoji icon */
+            font-size: 1.2em;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .call-to-action h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .call-to-action .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            /* Primary button color */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            /* Pill shape */
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+
+        .call-to-action .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Adjustments for About Section */
+        @media (max-width: 768px) {
+            .about-section {
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .about-header h1 {
+                font-size: 2.5em;
+            }
+
+            .about-header p {
+                font-size: 1em;
+            }
+
+            .about-content {
+                flex-direction: column;
+                /* Stack content vertically */
+            }
+
+            .about-text,
+            .about-image {
+                min-width: unset;
+                /* Remove min-width to allow full width */
+                width: 100%;
+            }
+
+            .about-text h2 {
+                font-size: 1.8em;
+            }
+
+            .about-text p {
+                font-size: 1em;
+            }
+
+            .call-to-action .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 15px;
+            }
+
+            .about-header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+    <nav class="bg-white shadow-md sticky top-0 w-full z-20">
+        <div class="container mx-auto px-6 flex justify-between items-center flex-wrap">
+            <a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-light text-purple-500">Fitbonus
+                </span>
+            </a>
+            <input type="checkbox" id="menu-toggle" class="peer">
+
+            <label for="menu-toggle" class="md:hidden cursor-pointer p-2 rounded-md hover:bg-gray-100">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </label>
+            <div id="menu-links" class="hidden w-full bg-white shadow-md py-2 flex-col
+                        md:static md:flex md:w-auto md:shadow-none md:bg-transparent md:py-0
+                        md:flex-row md:items-center md:space-x-4">
+                <a href="index.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Home</a>
+                <a href="about.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link nav-link-active">About</a>
+                <a href="referral-page.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Referrals
+                    </a>
+                <a href="leaderboard.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Leaderboard
+                </a>
+                <a href="bmi.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Bmi
+                    Calculator
+                </a>
+                <a href="login.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Login
+                </a>
+                <a href="journal.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link nav-link-active">Journal
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <section class="about-section">
+            <div class="about-header">
+                <h1>About <span style="color: #e74c3c;">FitBonus</span></h1>
+                <p>Your journey to a healthier, stronger, and happier you starts here. Discover what makes FitBonus more
+                    than just a gym.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>At FitBonus, our mission is to empower individuals of all fitness levels to achieve their
+                        personal health and wellness goals. We believe that fitness is a journey, not a destination,
+                        and we are committed to providing a supportive, motivating, and inclusive environment where
+                        everyone feels welcome to thrive.</p>
+                    <p>We focus on holistic well-being, combining physical training with mental resilience and
+                        nutritional guidance, ensuring you get the most out of your fitness experience.</p>
+
+                    <h2>What We Offer</h2>
+                    <ul>
+                        <li>State-of-the-Art Equipment: Access to the latest cardio, strength, and functional training
+                            machines.</li>
+                        <li>Certified Personal Trainers: Expert guidance to help you create personalized workout plans.
+                        </li>
+                        <li>Diverse Group Classes: From high-energy HIIT and spin to calming yoga and Pilates.</li>
+                        <li>Nutritional Guidance: Workshops and resources to fuel your body effectively.</li>
+                        <li>Community & Support: A vibrant community that encourages and motivates each other.</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="./images/pexels-willpicturethis-1954524.jpg"
+                        alt="Workout">
+                </div>
+            </div>
+
+            <div class="call-to-action">
+                <h3>Ready to Transform Your Life?</h3>
+                <p>Join the FitBonus family today and take the first step towards a healthier, more energetic you. We're
+                    excited to help you reach your full potential!</p>
+                <a href="#" class="btn">Explore Our Memberships</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-auto w-full">
+        &copy; 2025 Fitbonus. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('FitBonus About Section Loaded!');
+        });
+    </script>
+</body>
+
+</html>

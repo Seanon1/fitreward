@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitBonus - Fitness Organization - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked+label+div#menu-links {
+            display: flex;
+        }
+
+        .nav-link-active {
+            border-bottom-width: 2px;
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.9));
+
+        }
+    </style>
+
+</head>
+
+ <body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+    <nav class="bg-white shadow-md sticky top-0 w-full z-20">
+        <div class="container mx-auto px-6 flex justify-between items-center flex-wrap">
+            <!-- <a href="index.html" class="text-2xl font-bold text-blue-600">Go green</a> -->
+            <a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-light text-purple-500">Fitbonus
+                    </span>
+                    
+            </a>
+            <input type="checkbox" id="menu-toggle" class="peer">
+
+            <label for="menu-toggle" class="md:hidden cursor-pointer p-2 rounded-md hover:bg-gray-100">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </label>
+            <div id="menu-links" class="hidden w-full bg-white shadow-md py-2 flex-col
+                        md:static md:flex md:w-auto md:shadow-none md:bg-transparent md:py-0 
+                        md:flex-row md:items-center md:space-x-4">
+                <a href="index.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link nav-link-active">Home</a>
+                <a href="about.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">About</a>
+                <a href="referral-page.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Referrals
+                    </a>
+                <a href="leaderboard.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Leaderboard
+                </a>
+                <a href="bmi.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Bmi Calculator
+                </a>
+                <a href="login.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link">Login
+                </a>
+                <a href="journal.html"
+                    class="block w-full text-center md:w-auto text-light text-purple-500 hover:text-blue-600 px-3 py-3 md:py-2 rounded-md text-sm font-medium nav-link nav-link-active">Journal
+                </a>
+                
+               
+            </div>
+        </div>
+        </div>
+    </nav>
+
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero"
+            class="relative bg-gradient-to-r from-indigo-400 to-purple-500 text-white py-32 md:py-48 flex items-center justify-center min-h-screen">
+            <div class="absolute inset-0 bg-cover bg-center opacity-20"
+                style="background-image: url('./images/pexels-leonardho-1552242.jpg');">
+            </div>
+            <div class="container mx-auto text-center relative z-10 px-4">
+                <h1
+                    class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 rounded-lg p-3 bg-white bg-opacity-10 shadow-lg">
+                    FitBonus</h1>
+                <p class="text-2xl md:text-4xl font-light mb-10 italic">"Making Fitness Fun"</p>
+                <a href="#services"
+                    class="inline-block bg-white text-indigo-600 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300 ease-in-out">
+                    Explore Our Services
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl font-bold text-center text-indigo-700 mb-12">About FitBonus</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="./images/pexels-yankrukov-8436544.jpg"
+                            alt="Yoga workout" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                    <div class="md:w-1/2 text-lg text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            At FitBonus, we believe that fitness should be an enjoyable journey, not a chore. Our
+                            mission is to create a vibrant and supportive community where everyone feels motivated to
+                            achieve their health goals while having a great time.
+                        </p>
+                        <p class="mb-4">
+                            We offer a unique blend of state-of-the-art equipment, diverse classes, and personalized
+                            training programs designed to cater to all fitness levels. From high-energy group sessions
+                            to serene yoga classes, there's something for everyone.
+                        </p>
+                        <p>
+                            Join us and discover how "Making Fitness Fun" can transform your life!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl font-bold text-center text-indigo-700 mb-12">Our Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="text-indigo-600 mb-4 text-5xl text-center">
+                            🏋️
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Modern excercise plans</h3>
+                        <p class="text-gray-700 text-center">
+                            Access to a wide range of excercise plans custom tailored for different people to utilise and see growth 
+                            .
+                        </p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="text-indigo-600 mb-4 text-5xl text-center">
+                            🧘
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Group Classes</h3>
+                        <p class="text-gray-700 text-center">
+                            Join our energetic group classes including Zumba, Yoga, and more, led by
+                            certified instructors.
+                        </p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="text-indigo-600 mb-4 text-5xl text-center">
+                            💪
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Personal Training</h3>
+                        <p class="text-gray-700 text-center">
+                            Get personalized attention and custom workout plans from our expert personal trainers to
+                            accelerate your results.
+                        </p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="text-indigo-600 mb-4 text-5xl text-center">
+                            🍎
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Nutrition Guidance</h3>
+                        <p class="text-gray-700 text-center">
+                            Complement your workouts with professional nutrition advice and meal planning to optimize
+                            your health.
+                        </p>
+                    </div>
+                    <!-- Service Card 5 -->
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="text-indigo-600 mb-4 text-5xl text-center">
+                            🤝
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Active Community</h3>
+                        <p class="text-gray-700 text-center">
+                                Which keeps people,active and helps new members to grow.
+                        </p>
+                    </div>
+                    <!-- Service Card 6 -->
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="text-indigo-600 mb-4 text-5xl text-center">
+                            📝
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Personal Journal</h3>
+                        <p class="text-gray-700 text-center">
+                            Which helps to track one's personal journey to check whether daily goals were met or not and where to improve 
+                            by setting new plans.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl font-bold text-center text-indigo-700 mb-12">What Our Members Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Testimonial Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <p class="text-gray-700 italic mb-6">
+                            "FitBonus has completely changed my perspective on fitness! The personalized plans are so engaging, and
+                            the trainers are incredibly supportive. I actually look forward to my workouts now."
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/60x60/6B7280/FFFFFF?text=JK" alt="Jonathan Kimani"
+                                class="w-16 h-16 rounded-full mr-4 object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900">Jonathan Kimani</p>
+                                <p class="text-sm text-gray-600">Long-term Member</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <p class="text-gray-700 italic mb-6">
+                            "I've tried many fitness websites, but FitBonus stands out. The design is fantastic, and the
+                            trainers and staff are helpful. Plus, the community events make it more than just a regular
+                            fitness website."
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/60x60/6B7280/FFFFFF?text=SO" alt="Stacy Ochieng"
+                                class="w-16 h-16 rounded-full mr-4 object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-900">Stacy Ochieng</p>
+                                <p class="text-sm text-gray-600">New Member</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action / Membership Section -->
+        <section class="bg-purple-600 text-white py-20">
+            <div class="container mx-auto text-center px-6 md:px-12">
+                <h2 class="text-4xl font-bold mb-6">Ready to Make Fitness Fun?</h2>
+                <p class="text-xl mb-10">
+                    Join the FitBonus family today and start your journey towards a healthier, happier you!
+                </p>
+                <a href="#contact"
+                    class="inline-block bg-white text-indigo-600 font-bold py-4 px-10 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300 ease-in-out">
+                    Sign Up Now!
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-4xl font-bold text-center text-purple-700 mb-12">Contact Us</h2>
+                <div class="flex flex-col md:flex-row gap-12 items-start">
+                    <div class="md:w-1/2 bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Get in Touch</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 text-lg font-medium mb-2">Name</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200"
+                                    placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 text-lg font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200"
+                                    placeholder="Your Email">
+                            </div>
+                            <div>
+                                <label for="message"
+                                    class="block text-gray-700 text-lg font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200"
+                                    placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300 ease-in-out">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    <div class="md:w-1/2 bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Our Location</h3>
+                        <p class="text-gray-700 mb-4">
+                            <strong>Address:</strong> 123 Fitness Ave, Gym City, GC 12345
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            <strong>Phone:</strong> (123) 456-7890
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            <strong>Email:</strong> info@fitbonus.com
+                        </p>
+                        <div class="mt-8">
+                            <!-- Placeholder for a map or image -->
+                            <img src="/-Fitbonushub\HILmr.png"
+                                alt="Gym Location" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+   
+    <!-- Footer Section -->
+    <footer class="bg-purple-500 text-white py-10">
+        <div class="container mx-auto text-center px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-4 md:mb-0">
+                    <h4 class="text-2xl font-bold text-indigo-400">FitBonus</h4>
+                    <p class="text-sm text-gray-400">Making Fitness Fun</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#"
+                        class="text-black-300 hover:text-indigo-400 transition duration-300 ease-in-out">Facebook</a>
+                    <a href="#"
+                        class="text-black-300 hover:text-indigo-400 transition duration-300 ease-in-out">Instagram</a>
+                    <a href="#"
+                        class="text-black-300 hover:text-indigo-400 transition duration-300 ease-in-out">Twitter</a>
+                </div>
+            </div>
+            <p class="text-black-400 text-sm">&copy; 2025 FitBonus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for smooth scrolling and mobile menu
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Mobile menu toggle functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+            if (mobileMenuButton && mobileMenu && closeMobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                });
+
+                closeMobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = ''; // Restore scrolling
+                });
+
+                // Close mobile menu when a link is clicked inside it
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
+
+        // Function to close mobile menu, called by inline onclick for mobile menu links
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+
+   
+</body>
+
+</html>
